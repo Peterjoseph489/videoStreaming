@@ -35,3 +35,26 @@ const signUp = async (req, res) => {
 };
 
 
+const adminVideo = async (req, res) => {
+    try {
+        const adminId = req.params.adminId;
+        const findVideos = await Videos.findById(adminId).sort({
+            'createdAt': -1
+        }).toArray();
+
+        return res.status(200).json({
+            data: findVideos
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        })
+    }
+};
+
+
+module.exports = {
+    signUp,
+    adminVideo
+}
+
