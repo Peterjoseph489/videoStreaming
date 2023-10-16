@@ -31,7 +31,8 @@ const signUpUser = async (req, res) => {
             message: error.message
         })
     }
-}
+};
+
 
 
 module.exports = {
